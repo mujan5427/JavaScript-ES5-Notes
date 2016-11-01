@@ -1,13 +1,11 @@
 # JavaScript Notes
 
----
 | This is menu area |
 | ------------- |
 
 > 以下所述均以 ECMA Script 5 為主
 
-### JavaScript Concept
----
+## JavaScript Concept
 
 * JavaScript 於 1995 年由任職 Netscape 的 [Brendan Eich](https://twitter.com/BrendanEich) 所創 
 
@@ -15,8 +13,8 @@
 
 <br />
 
-### JavaScript Core
----
+## JavaScript Core
+
 語彙結構
   1. 字元集
     * JavaScript 的程式，需使用 Unicode 字元集撰寫 (ES5 要求實作支援 Unicode 3 later)
@@ -47,18 +45,17 @@
 <br />
 
 
-### Client-Side JavaScript
----
+## Client-Side JavaScript
+
 
 <br />
 
-### Server-Side JavaScript
----
+## Server-Side JavaScript
+
 
 <br />
 
-### Reference Information
----
+## Reference Information
 
 JavaScript : The Definitive Guide,  6E Traditional Chinese (Author：David Flanagan)
 
