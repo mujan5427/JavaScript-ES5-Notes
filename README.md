@@ -16,12 +16,12 @@
 ## JavaScript Core
 
 語彙結構
-  1. 字元集
-    * JavaScript 的程式，需使用 Unicode 字元集撰寫 (ES5 要求實作支援 Unicode 3 later)
 
-    * JavaScript 會區分大小寫，因此「關鍵字、變數、函式名稱、識別字」必須要大小寫一致
+  * JavaScript 的程式，需使用 Unicode 字元集撰寫 (ES5 要求實作支援 Unicode 3 later)
 
-    * **字面值 (_literal_)** : 直接出現在程式中的資料值
+  * JavaScript 會區分大小寫，因此「關鍵字、變數、函式名稱、識別字」必須要大小寫一致
+
+  * **字面值 (_literal_)** : 直接出現在程式中的資料值
 
     ex :
     ```javascript
