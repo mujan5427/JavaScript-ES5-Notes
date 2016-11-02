@@ -177,7 +177,7 @@
 
 述句
 
-  * 條件述句 (_conditional statements_)：`if`、`else if`、`switch`
+  * **條件述句 (_conditional statements_)**：`if`、`else if`、`switch`
 
     ex :
 
@@ -215,7 +215,7 @@
 
     // switch statement
 
-    /* case 匹配與否是由 === 同一性 (_identity_) 運算子所判定
+    /* case 匹配與否是由 === 同一性 (identity) 運算子所判定
      *
      * ECMAScript 標準允許每個 case 後面跟的可以是任意運算式
      *
@@ -227,17 +227,149 @@
         case 'number':     // 如果 x 等於 'number'，則執行此處
           // 執行程式區塊 1
           break;
+
         case 'string':
           // 執行程式碼區塊 2
           break;
+
         default:           // 如果都沒有找到相同的值，則執行此處
           //執行程式碼區塊 3
           break;           // 在這裡停止執行
     }
     ```
 
+  * **迴圈述句 (_looping statements_)**：`while`、`do/while`、`for`、`for/in`
+
+    ex :
+
+    ```javascript
+    
+    // while statement
+
+    var count = 0;
+
+    while (count < 10) {
+
+        console.log(count);
+        count++;
+    }
+
+    // do/while statement
+
+    var array = [1, 2, 3];
+    var len = array.length, i = 0
+
+    do {
+
+        console.log(array[i]);
+
+    } while (++i < len);
+
+    // for statement
+
+    for (var count = 0; count < 10; count++) {
+
+        console.log(count);
+    }
+
+    // for/in statement
+
+    /* 直譯器僅會列出物件中可列舉的 (enumerable) 特性
+     */
+
+    for (var p in o) {         // 指定 o 的特性名稱給變數 p
+
+        console.log(o[p]);     // 印出每個特性值
+    }
+    ```
+
+  * **被加上標籤的述句 (_labeled statement_) **：為述句加上一個標籤，可在程式其他地方參考此述句，標籤名稱可以是任何合法的識別字，但不能是保留字，標籤的名稱與變數、函式名稱的命名空間不同
+
+    ex :
+
+    ```javascript
+    mainloop: while (token != null) {
+
+        // 省略程式碼...
+
+        continue mainloop;     // 跳至具名 (named) 迴圈的下一次迭代
+
+        // 省略更多程式碼...
+    }
+    ```
+
+  * **跳躍述句 (_jump statements_)**：`break`、`continue`、`return`、`try/catch/finally`
+
+    ex :
+
+    ```javascript
+    // break statement
+
+    for (var i = 0; i < a.length; i++) {
+
+        if (a[i] == target) {
+    
+            break;     // 可使最內層的外圍迴圈，立即終止並跳離
+        }
+    }
+
+    // continue statement
+
+    for (i = 0; i < data.length; i++) {
+
+        if (!data[i]) {
+ 
+            continue;     // 重新開始下一次迭代
+        }
+
+        total += data[i];
+    }
+
+    // return statement
+
+    function square(x) {
+
+        return x*x;     // 回傳該運算式的值給呼叫者 (caller)
+    }
+
+    // try/catch/finally statement
+
+    /* 當有例外 (exception) 被拋出，直譯器會立刻停止正常的程式執行流程
+     *
+     * 並跳至最近的例外處理器 (exception handler)，也就是 catch block
+     *
+     * try：用來界定需要例外處理的程式碼範圍
+     *
+     * catch：try 區塊只要有例外拋出，catch 區塊即刻被調用
+     *
+     * finally：不管 try 有無拋出例外，該區塊都會被執行
+     *
+     * catch、finally 區塊都是非必需的，但至少要有一個伴隨 try 區塊
+     */
+
+    try {
+
+        // 欲執行的程式碼放這裡
+
+    } catch (exception) {     // exception 具有區塊範疇 (block scope)，只在 catch 區塊被定義
+
+        // 在此處理捕獲的例外，可透過 exception 來參考拋出的 物件 或 值
+
+    } finally {
+
+        // try 區塊以下列任一種方式終止時，它們就會被執行：
+
+        // 1) 抵達區塊結尾後正常結束
+        // 2) 因為 break、continue 或 return 述句
+        // 3) 有例外發生，並被上方的 catch 子句所處理
+        // 4) 有個未被捕獲的例外，仍在傳遞
+    }
+    ```
+  * 'use strict'：指出接在其後的程式碼屬於**strict 程式碼**，如果函式主體是定義在 strict 程式碼之中，該函式也屬於 strict 程式碼
 
 <br />
+
+  物件
 
 
 ## Client-Side JavaScript
