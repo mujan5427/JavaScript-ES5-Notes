@@ -126,6 +126,43 @@
     Object(3)         // => new Number(3)
     ```
 
+  * **變數宣告 (_variable declare_)**：使用 `var`，可用同一個關鍵字宣告多個變數，也可直接初始化 (_initialization_)，只宣告並未初始化的變數，它的值會是 `undefined`
+
+    ex :
+    
+    ```javascript
+    var i, sum;
+
+    var x = 0, y = 1, z = 2;
+    ```
+
+  * **變數範疇 (_variable scope_)**：在頂層 (_top-level_) 宣告的變數為全域變數 (_global variable_)，在函式主體中定義的變數為區域變數 (_local variable_)，函式參數 (_parameters_) 也算區域變數
+
+  * **變數優先序 (_precedence_)**：區域變數的優先序，比同樣名稱的全域變數還高
+
+    ex :
+
+    ```javascript
+    var scope = 'global';        // 宣告全域變數
+
+    function checkScope() {
+
+        var scope = 'local';     // 宣告同名的區域變數
+
+        return scope;            // 回傳區域變數的值
+    }
+
+    checkScope();                // => 'local'
+    ```
+
+<br />
+
+運算式與運算子
+
+  * **運算式 (_expression_)**：直譯器可以估算 (_evaluate_) 它，進而產生一個結果值
+
+
+
 <br />
 
 
