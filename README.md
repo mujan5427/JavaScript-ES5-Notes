@@ -161,6 +161,78 @@
 
   * **運算式 (_expression_)**：直譯器可以估算 (_evaluate_) 它，進而產生一個結果值
 
+  * **運算子 (_operators_)**：運算子大多用標點符號 (_punctuation_) 來表示，擁有優先序 (_precedence_)、結合律 (_associativity_)
+
+  * **運算元 (_operands_) **：被運算子所估算 (_evaluate_) 的元素
+
+    ex :
+
+    ```javascript
+    1 + 2;          // => 3; + 為運算子，1 和 2 為運算元
+    11 < 3;         // => true
+    delete o.x;     // 刪除物件 o 的特性 x
+    ```
+
+<br />
+
+述句
+
+  * 條件述句 (_conditional statements_)：`if`、`else if`、`switch`
+
+    ```javascript
+    // if statement
+
+    if (username === null) {
+
+        username = 'Justin Ho';
+
+    } else {
+
+        console.log(username);
+
+    }
+
+    // else if statement
+
+    if (x === 1) {
+
+        // 執行程式區塊 1
+
+    } else if (x === 2) {
+
+        // 執行程式區塊 2
+
+    } else if (x === 3) {
+
+        // 執行程式區塊 3
+
+    } else {
+
+        // 所有的條件都不滿足，就執行程式碼區塊 4
+    }
+
+    // switch statement
+
+    /* case 匹配與否是由 === 同一性 (_identity_) 運算子所判定
+     *
+     * ECMAScript 標準允許每個 case 後面跟的可以是任意運算式
+     *
+     * 如果沒有匹配的 case 且不存在 default: 標籤，則跳過整個 switch 主體
+     */
+
+    switch (x) {
+
+        case 'number':     // 如果 x 等於 'number'，則執行此處
+          // 執行程式區塊 1
+          break;
+        case 'string':
+          // 執行程式碼區塊 2
+          break;
+        default:           // 如果都沒有找到相同的值，則執行此處
+          //執行程式碼區塊 3
+          break;           // 在這裡停止執行
+    }
+
 
 
 <br />
