@@ -559,6 +559,157 @@
     var a[i + 1] = 'hello';     // 寫入元素 3
     ```
 
+<br />
+
+函式
+
+  * **函式 (_function_)**：是 JavaScript 的程式碼區塊，僅定義一次，可以被多次調用 (_invoked_)
+
+  * 如果一個函式被指定給物件的特性，則稱為方法 (_method_)
+
+  * 函式宣告可透過 `function`
+
+    ex :
+
+    ```javascript
+    function distance(x1, y1, x2, y2) {          // distance 為函式名稱，後面 () 包覆的內容為參數 (parameters)
+
+        var dx = x2 - x1;
+        var dy = y2 - y1;
+
+        return Math.sqrt(dx * dx + dy * dy);     // 透過 return 回傳此函數的回傳值
+    }
+    ```
+
+  * 函式宣告實際上是宣告一個變數，然後把函式物件指定給它，而函式運算式則沒有宣告變數
+
+  * 函式運算式的函式名稱是**非必要的**
+
+    ex :
+
+    ```javascript
+    var x = 10;
+    var square = function(x) {return x * x;}
+    console.log(square(x));                                 // => 100
+
+    data.sort(function(a, b) {return a-b;});                // 函式運算式也可以當作其他函式的引數
+
+    var tensquared = (function(x) {return x * x} (10));     // 函式運算式也可以在宣告後立即調用
+    ```
+
+  * **拉升 (_hoisting_)**：移到一個範疇 (_scope_) 開頭的地方
+
+  * 函式宣告會完全被拉升，而變數宣告只有部分會被拉升
+
+    ex :
+
+    ```javascript
+    // 函式宣告拉升
+
+    foo();
+    function foo() {     // 此函式被拉升了
+
+    }
+
+    // 實際執行時，會將上述程式碼以下列方式執行
+
+    function foo() {
+
+    }
+
+    foo();
+
+    // 變數宣告拉升
+
+    foo();
+    var foo = function () {
+
+    };
+
+    // 實際執行時，會將上述程式碼以下列方式執行
+
+    var foo;
+    foo();     // TypeError：undefined is not a function
+    foo = function () {
+
+    };
+    ```
+
+  * 函式調用可透過四種方式「`作為函式`、`作為方法`、`作為建構式`、`call() 和 apply()`」
+
+    ex :
+
+    ```javascript
+    // 作為函式
+
+    printprops(10, 5);
+
+    // 作為方法
+
+    o.printprops(10, 5);
+
+    // 作為建構式
+
+    var o = new Object();
+    var o = new Object;
+
+    // call() 和 apply()
+
+    f.call(o);           // 把函式 f() 當成物件 o 的方法來調用
+    f.apply(o);
+    f.call(o, 1, 2);     // 第一個引數指出要在哪個物件上調用函式，之後的引數為要傳入函式的引數
+    ```
+
+  * 函式調用不會對傳入的引數做任何型別檢查，也不會檢查引數個數
+
+  * 函式調用的引數比宣告的參數少時，額外的參數會被設為 undefined
+
+  * 函式調用的引數比宣告的參數多時，可透過 `arguments` 參考
+
+  * arguments 是一種類陣列物件 (_array-like object_)
+
+    ex :
+
+    ```javascript
+    function f(x, y, z) {
+
+        console.log(arguments[0]);         // arguments[0] 等於，引數 x
+        console.log(arguments[1]);         // arguments[1] 等於，引數 y
+        console.log(arguments[2]);         // arguments[2] 等於，引數 z
+         
+        // 三個引數被調用
+
+        console.log(arguments.length);     // => 3
+    }
+    ```
+
+  * 函式不只是語法，它也是「值」(_value_)
+
+    ex :
+
+    ```javascript
+    function square(x) {return x * x;}             // 定義一個函式
+
+    var s = square;                                // 現在 s 與 square 參考至相同的函式
+    square(4);                                     // => 16
+    s(4);                                          // => 16
+
+    var a = [function(x) {return x * x;}, 20];     // 一個陣列字面值
+    a[0](a[1]);                                    // => 400
+    ```
+
+  * 函式是一種特化的物件，所以它也有特性
+
+    ex :
+
+    ```javascript
+    function uniqueInteger () {
+
+        uniqueInteger.counter = 10;
+
+        console.log(uniqueInteger.counter + 1);    // => 11
+    }
+    ```
 
 <br />
 
