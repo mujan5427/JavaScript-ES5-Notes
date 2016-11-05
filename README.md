@@ -522,6 +522,46 @@
 
 <br />
 
+陣列
+
+  * 陣列的元素可以是任何的型別，同一陣列中的不同元素可能具有不同型別
+
+  * 建立陣列元素可透過 `[]`、`new Array()`，**陣列字面值允許在結尾加上逗號**
+
+    ex :
+
+    ```javascript
+    var empty = [];                    // 空陣列
+    var primes = [2, 3, 5, 7, 11];     // 五個數值元素的陣列
+    var misc = [1.1, true, 'a',];      // 三個不同型別的元素，加上尾隨的逗號
+
+    var base = 1024;
+    var table = [base, base + 1, base + 2, base + 3];
+
+    var count = [1,,3];     // count[1] => undefined
+    var undefs = [,,];      // 稀疏陣列
+
+    var a = new Array();                          // 等同於 []
+    var a = new Array(10);                        // 指定陣列長度
+    var a = new Array(5, 4, 3, 2, 1, 'test');     // 含有六個元素的陣列
+    ```
+
+  * 讀取或寫入陣列的值可透過 `[]`
+
+    ex :
+
+    ```javascript
+    var a = ['world'];          // 建立具有單一元素的陣列
+    var value = a[0];           // 讀取元素 0
+    var a[1] = 3.14;            // 寫入元素 1
+
+    var i = 2;
+    var a[i + 1] = 'hello';     // 寫入元素 3
+    ```
+
+
+<br />
+
 ## Client-Side JavaScript
 
 
