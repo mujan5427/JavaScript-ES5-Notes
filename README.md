@@ -369,8 +369,158 @@
 
 <br />
 
-  物件
+物件
 
+  * 物件是特性的集合
+
+  * 每個特性均有其相關連的特性屬性 (_property attributes_)
+
+    * 可寫 (_writable_)：指明該特性的值能否被更動
+
+    * 可列舉 (_enumerable_)：指明該特性名稱是否可被 for/in 迴圈回傳
+
+    * 可配置 (_configurable_)：指明該特性是否可被刪除，以及它的屬性能否被更動
+
+  * 每個物件均有其相關連的物件屬性 (_object attributes_)
+
+    * (_prototype_)：指明該物件繼承至哪個物件
+
+    * (_class_)：是個字串，用以區分該物件的種類
+
+    * (_extensible_)：指明是否可在該物件加入新特性
+
+  * 創建物件可透過 3 種方式「物件字面值 (_object literal_)、new 關鍵字、Object.create()」
+
+    ex :
+
+    ```javascript
+    // 物件字面值
+
+    var empty = {};
+    var point = {x:0, y:0};
+    var point2 = {x: point.x, y:point.y+1};
+    var book = {
+        "main title": "JavaScript",
+        'sub-title': "The Definitive Guide",
+        "for": "all audiences",
+        author: {
+            firstname: "David",
+            surname: "Flanagan",
+        }
+    };
+
+    // new 關鍵字
+
+    var o = new Object();         // 創建空物件，等同於 {}
+    var a = new Array();          // 創建空陣列，等同於 []
+    var d = new Date();           // 創建代表目前時間的 Date 物件
+    var r = new RegExp("js");     // 創建用來範式比對的 RegExp 物件
+
+    // Object.create()
+
+    var o1 = Object.create({x: 1, y: 2});     // o1 繼承了特性 x 與 y
+    var o2 = Object.create(null);             // o2 不會繼承任何特性或方法
+    ```
+
+  * 每個物件都有第二個物件與之關聯，而這第二個物件就稱為原型，第一個物件就從這個原型繼承特性
+
+  * 所有用物件字面值建立的物件，都有同一個原型物件，我們用 Object.prototype 來參考這個原型物件
+
+  * 透過 new 關鍵字與建構式所建立的物件，其原型為建構式的 prototype 特性值
+
+  * Object.create() 建立的物件，可指定原型或不繼承任何原型物件
+
+  * 要獲取或設定特性的值可透過「`.`、`[]`」運算子
+
+    ex :
+
+    ```javascript
+    // 獲取
+
+    var author = book.author;
+    var name = author.surname;
+    var title = book['main title']
+
+    // 設定
+
+    book.edition = 6;
+    book['main title'] = 'ECMAScript';
+    book['Hello' + 'World'] = 'helloworld';
+    ```
+
+  * 如果已存在繼承特性 (_inherited property_) x，再新增一個同名的自有特性 x，則此自有特性會覆寫 (_override_) 繼承特性 x
+
+  * 繼承只在查用特性時發生，而不在設定特性時發生，意思是無法透過繼承去修改原型物件的特性
+
+  * 刪除指定特性可透過「`delete`」運算子，但只能刪除自有特性，且不會刪除 configurable 屬性為 false 的特性
+
+    ex :
+
+    ```javascript
+    delete bookauthor;
+    delete book['main title'];
+    ```
+
+  * 查看物件的指定特性屬性可透過 `Object.getOwnPropertyDescriptor()`
+
+    ex :
+
+    ```javascript
+    var o = {x:1, y:2, z:3};
+
+    console.log(Object.getOwnPropertyDescriptor(o, 'y'));
+
+    // 回傳值如下
+
+    /* [object Object] {
+     *   configurable: true,
+     *   enumerable: true,
+     *   value: 2,
+     *   writable: true
+     * }
+     */
+    ```
+
+  * 設定物件特性的屬性可透過 `Object.defineProperty()`
+
+    ex :
+
+    ```javascript
+    var o = {};
+
+    Object.defineProperty(o, 'x', {
+
+        value: 1,
+        writable: true,
+        enumerable: false,
+        configurable: true
+
+    });
+
+    // 查看特性是否存在
+
+    o.x;     // => 1
+    ```
+
+  * 設定多筆物件特性與其屬性可透過 `Object.defineProperties()`
+
+  * **物件序列化 (_serialization_)**：將物件轉成字串，並讓它可由字串復原成物件
+
+    ex :
+
+    ```javascript
+    var o = {x:1, y:{z:[false, null, '']}};     // 定義一個物件
+
+    var s = JSON.stringify(o);                  // 序列化 物件o，將 物件o 轉成字串
+
+    var p = JSON.parse(s);                      // 復原被序列化的 物件 o
+
+    // 調用被復原的 物件o 特性
+
+    console.log(p.y.z[0]);                      // => false
+    ```
+
+<br />
 
 ## Client-Side JavaScript
 
