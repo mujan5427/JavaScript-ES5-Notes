@@ -59,6 +59,7 @@
     ```
 
 <br />
+**[⬆ back to top](#table-of-contents)**
 
 <a name="types-values-and-variables"></a>
 型別、值與變數
@@ -172,6 +173,7 @@
     ```
 
 <br />
+**[⬆ back to top](#table-of-contents)**
 
 <a name="expressions-and-operators"></a>
 運算式與運算子
@@ -191,6 +193,7 @@
     ```
 
 <br />
+**[⬆ back to top](#table-of-contents)**
 
 <a name="statements"></a>
 述句
@@ -386,6 +389,7 @@
   * 'use strict'：指出接在其後的程式碼屬於**strict 程式碼**，如果函式主體是定義在 strict 程式碼之中，該函式也屬於 strict 程式碼
 
 <br />
+**[⬆ back to top](#table-of-contents)**
 
 <a name="objects"></a>
 物件
@@ -540,6 +544,7 @@
     ```
 
 <br />
+**[⬆ back to top](#table-of-contents)**
 
 <a name="arrays"></a>
 陣列
@@ -580,6 +585,7 @@
     ```
 
 <br />
+**[⬆ back to top](#table-of-contents)**
 
 <a name="functions"></a>
 函式
@@ -733,6 +739,7 @@
     ```
 
 <br />
+**[⬆ back to top](#table-of-contents)**
 
 ## Reference Information
 
