@@ -713,16 +713,6 @@
 
 <br />
 
-## Client-Side JavaScript
-
-
-<br />
-
-## Server-Side JavaScript
-
-
-<br />
-
 ## Reference Information
 
 JavaScript : The Definitive Guide,  6E Traditional Chinese (Author：David Flanagan)
