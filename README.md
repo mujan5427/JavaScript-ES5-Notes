@@ -26,7 +26,7 @@
 
 * JavaScript 於 1995 年由任職 Netscape 的 [Brendan Eich](https://twitter.com/BrendanEich) 所創 
 
-* ECMA Script 為 JavaScript 的標準化名稱
+* ECMAScript 為 JavaScript 的標準化名稱
 
 <br />
 
