@@ -727,4 +727,6 @@
 
 JavaScript : The Definitive Guide,  6E Traditional Chinese (Author：David Flanagan)
 
+Speaking JavaScript, Traditional Chinese (Author：Dr. Axel Rauschmayer)
+
 <br />
