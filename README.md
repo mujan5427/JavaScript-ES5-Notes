@@ -7,12 +7,12 @@
 [JavaScript Core](#javascript-core)
 
   1. [語彙結構](#lexical-structure)
-  2. [型別、值與變數]()
-  3. [運算式與運算子]()
-  4. [述句]()
-  5. [物件]()
-  6. [陣列]()
-  7. [函式]()
+  2. [型別、值與變數](#types-values-and-variables)
+  3. [運算式與運算子](#expressions-and-operators)
+  4. [述句](#statements)
+  5. [物件](#objects)
+  6. [陣列](#arrays)
+  7. [函式](#functions)
 
 [Reference Information](#reference-information)
 
@@ -60,7 +60,7 @@
 
 <br />
 
-
+<a name="types-values-and-variables"></a>
 型別、值與變數
 
   * JavaScript 型別分成兩類：基本型別 (_primitive types_) 與 物件型別 (_object types_)
@@ -173,6 +173,7 @@
 
 <br />
 
+<a name="expressions-and-operators"></a>
 運算式與運算子
 
   * **運算式 (_expression_)**：直譯器可以估算 (_evaluate_) 它，進而產生一個結果值
@@ -191,6 +192,7 @@
 
 <br />
 
+<a name="statements"></a>
 述句
 
   * **條件述句 (_conditional statements_)**：`if`、`else if`、`switch`
@@ -385,6 +387,7 @@
 
 <br />
 
+<a name="objects"></a>
 物件
 
   * 物件是特性的集合
@@ -538,6 +541,7 @@
 
 <br />
 
+<a name="arrays"></a>
 陣列
 
   * 陣列的元素可以是任何的型別，同一陣列中的不同元素可能具有不同型別
@@ -577,6 +581,7 @@
 
 <br />
 
+<a name="functions"></a>
 函式
 
   * **函式 (_function_)**：是 JavaScript 的程式碼區塊，僅定義一次，可以被多次調用 (_invoked_)
