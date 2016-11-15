@@ -1,9 +1,23 @@
 # JavaScript Notes
 
-| This is menu area |
-| ------------- |
+## Table of Contents
+
+[JavaScript Concept](#javascript-concept)
+[JavaScript Core](#javascript-core)
+
+  1. [語彙結構](#lexical-structure)
+  2. [型別、值與變數]()
+  3. [運算式與運算子]()
+  4. [述句]()
+  5. [物件]()
+  6. [陣列]()
+  7. [函式]()
+
+[Reference Information](#reference-information)
 
 > 以下所述均以 ECMA Script 5 為主
+
+<br />
 
 ## JavaScript Concept
 
