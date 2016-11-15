@@ -3,6 +3,7 @@
 ## Table of Contents
 
 [JavaScript Concept](#javascript-concept)
+
 [JavaScript Core](#javascript-core)
 
   1. [語彙結構](#lexical-structure)
