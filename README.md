@@ -58,8 +58,8 @@
     break、class、var 或 int
     ```
 
-<br />
 **[⬆ back to top](#table-of-contents)**
+<br />
 
 <a name="types-values-and-variables"></a>
 型別、值與變數
@@ -172,8 +172,8 @@
     checkScope();                // => 'local'
     ```
 
-<br />
 **[⬆ back to top](#table-of-contents)**
+<br />
 
 <a name="expressions-and-operators"></a>
 運算式與運算子
@@ -192,8 +192,8 @@
     delete o.x;     // 刪除物件 o 的特性 x
     ```
 
-<br />
 **[⬆ back to top](#table-of-contents)**
+<br />
 
 <a name="statements"></a>
 述句
@@ -388,8 +388,8 @@
     ```
   * 'use strict'：指出接在其後的程式碼屬於**strict 程式碼**，如果函式主體是定義在 strict 程式碼之中，該函式也屬於 strict 程式碼
 
-<br />
 **[⬆ back to top](#table-of-contents)**
+<br />
 
 <a name="objects"></a>
 物件
@@ -543,8 +543,8 @@
     console.log(p.y.z[0]);                      // => false
     ```
 
-<br />
 **[⬆ back to top](#table-of-contents)**
+<br />
 
 <a name="arrays"></a>
 陣列
@@ -584,8 +584,8 @@
     var a[i + 1] = 'hello';     // 寫入元素 3
     ```
 
-<br />
 **[⬆ back to top](#table-of-contents)**
+<br />
 
 <a name="functions"></a>
 函式
@@ -738,8 +738,8 @@
     }
     ```
 
-<br />
 **[⬆ back to top](#table-of-contents)**
+<br />
 
 ## Reference Information
 
