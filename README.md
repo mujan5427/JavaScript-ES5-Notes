@@ -1,5 +1,9 @@
 # JavaScript Notes
 
+> 以下所述均以 ECMAScript 5 為主
+
+<br />
+
 ## Table of Contents
 
 [JavaScript Concept](#javascript-concept)
@@ -15,8 +19,6 @@
   7. [函式](#functions)
 
 [Reference Information](#reference-information)
-
-> 以下所述均以 ECMA Script 5 為主
 
 <br />
 
