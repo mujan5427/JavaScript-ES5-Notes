@@ -29,6 +29,7 @@
 
 ## JavaScript Core
 
+<a name="lexical-structure"></a>
 語彙結構
 
   * JavaScript 的程式，需使用 Unicode 字元集撰寫 (ES5 要求實作支援 Unicode 3 later)
