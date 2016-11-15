@@ -59,6 +59,8 @@
     ```
 
 **[⬆ back to top](#table-of-contents)**
+
+<br />
 <br />
 
 <a name="types-values-and-variables"></a>
@@ -173,6 +175,8 @@
     ```
 
 **[⬆ back to top](#table-of-contents)**
+
+<br />
 <br />
 
 <a name="expressions-and-operators"></a>
@@ -193,6 +197,8 @@
     ```
 
 **[⬆ back to top](#table-of-contents)**
+
+<br />
 <br />
 
 <a name="statements"></a>
@@ -389,6 +395,8 @@
   * 'use strict'：指出接在其後的程式碼屬於**strict 程式碼**，如果函式主體是定義在 strict 程式碼之中，該函式也屬於 strict 程式碼
 
 **[⬆ back to top](#table-of-contents)**
+
+<br />
 <br />
 
 <a name="objects"></a>
@@ -544,6 +552,8 @@
     ```
 
 **[⬆ back to top](#table-of-contents)**
+
+<br />
 <br />
 
 <a name="arrays"></a>
@@ -585,6 +595,8 @@
     ```
 
 **[⬆ back to top](#table-of-contents)**
+
+<br />
 <br />
 
 <a name="functions"></a>
@@ -739,6 +751,8 @@
     ```
 
 **[⬆ back to top](#table-of-contents)**
+
+<br />
 <br />
 
 ## Reference Information
