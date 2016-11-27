@@ -4,13 +4,13 @@
 
 [JavaScript Core](#javascript-core)
 
-  1. [語彙結構](#lexical-structure)
-  2. [型別、值與變數](#types-values-and-variables)
-  3. [運算式與運算子](#expressions-and-operators)
-  4. [述句](#statements)
-  5. [物件](#objects)
-  6. [陣列](#arrays)
-  7. [函式](#functions)
+  1. [Lexical Structure](#lexical-structure)
+  2. [Types, Values, and Variables](#types-values-and-variables)
+  3. [Expressions and Operators](#expressions-and-operators)
+  4. [Statements](#statements)
+  5. [Objects](#objects)
+  6. [Arrays](#arrays)
+  7. [Functions](#functions)
 
 [Reference Information](#reference-information)
 
@@ -27,7 +27,7 @@
 ## JavaScript Core
 
 <a name="lexical-structure"></a>
-語彙結構
+Lexical Structure
 
   * JavaScript 的程式，需使用 Unicode 字元集撰寫 (ES5 要求實作支援 Unicode 3 later)
 
@@ -60,7 +60,7 @@
 <br />
 
 <a name="types-values-and-variables"></a>
-型別、值與變數
+Types, Values, and Variables
 
   * JavaScript 型別分成兩類：基本型別 (_primitive types_) 與 物件型別 (_object types_)
 
@@ -176,7 +176,7 @@
 <br />
 
 <a name="expressions-and-operators"></a>
-運算式與運算子
+Expressions and Operators
 
   * **運算式 (_expression_)**：直譯器可以估算 (_evaluate_) 它，進而產生一個結果值
 
@@ -198,7 +198,7 @@
 <br />
 
 <a name="statements"></a>
-述句
+Statements
 
   * **條件述句 (_conditional statements_)**：`if`、`else if`、`switch`
 
@@ -396,7 +396,7 @@
 <br />
 
 <a name="objects"></a>
-物件
+Objects
 
   * 物件是特性的集合
 
@@ -553,7 +553,7 @@
 <br />
 
 <a name="arrays"></a>
-陣列
+Arrays
 
   * 陣列的元素可以是任何的型別，同一陣列中的不同元素可能具有不同型別
 
@@ -596,7 +596,7 @@
 <br />
 
 <a name="functions"></a>
-函式
+Functions
 
   * **函式 (_function_)**：是 JavaScript 的程式碼區塊，僅定義一次，可以被多次調用 (_invoked_)
 
