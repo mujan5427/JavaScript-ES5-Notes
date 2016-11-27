@@ -1,9 +1,3 @@
-# JavaScript Notes
-
-> 以下所述均以 ECMAScript 5 為主
-
-<br />
-
 ## Table of Contents
 
 [JavaScript Concept](#javascript-concept)
