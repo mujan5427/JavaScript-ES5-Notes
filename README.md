@@ -116,12 +116,38 @@ Types, Values, and Variables
 
     * Math 與 JSON 這類全域物件
 
-  * **this**：在頂層 (_top-level_) 程式碼，可使用 `this` 參考全域物件
+  * **this 關鍵字**：不是一個常數，它的估算值會隨著在程式中的位置而改變
+
+    > 不同於變數，this 關鍵字沒有範疇 (_scope_)
+
+    - 在 top-level 中：this 參考至全域物件
+
+    - 函式調用：this 參考至全域物件，strict 模式中 為 `undefined`
+
+    - 方法調用：this 參考至方法所屬的物件
 
     ex :
 
     ```javascript
-    var global = this;     // 定義一個全域變數參考全域物件
+    var obj = {
+      
+      m: function() {
+        
+        var self = this;
+        
+        console.log(this === obj);       // => true
+        
+        func();
+        
+        function func() {
+          
+          console.log(this === obj);     // => false，this 為全域物件 或 undefined
+          console.log(self === obj);     // => true，self 是外層的 this 值
+        }
+      }
+    };
+    
+    obj.m();
     ```
 
   * **外覆物件 (_wrapper object_)**：每當參考「字串、數字、布林值」的特性，JavaScript 就會將它們轉為一個暫時物件，這個物件繼承了對應型別的原型特性，一旦特性被參考完畢，這個暫時物件就被丟棄，**null 與 undefined**並無此種物件，**此物件的特性是唯讀且不得定義新特性**
@@ -451,6 +477,8 @@ Objects
 
   * 每個物件都有第二個物件與之關聯，而這第二個物件就稱為原型，第一個物件就從這個原型繼承特性
 
+  * **原型鏈 (_prototype chain_)**：原型與原型之間繼承的關係就稱為原型鏈
+
   * 所有用物件字面值建立的物件，都有同一個原型物件，我們用 Object.prototype 來參考這個原型物件
 
   * 透過 new 關鍵字與建構式所建立的物件，其原型為建構式的 prototype 特性值
@@ -531,6 +559,34 @@ Objects
 
   * 設定多筆物件特性與其屬性可透過 `Object.defineProperties()`
 
+  * 遍歷物件中的特性可透過下列方式
+
+    - 自有特性 (_own properties_)：Object.getOwnPropertyNames(object)，包含不可列舉的特性
+
+    - 繼承特性 (_inherited properties_)：for-in 迴圈，列出自有、繼承的可列舉的特性
+
+  * 讀取、設定物件屬性 (_object attributes_)
+
+    - 原型 (_prototype_)
+
+      - 讀取：Object.getPrototypeOf(object)
+
+      - 設定：Object.setPrototypeOf(object, prototype)
+
+    - 類別 (_class_)
+
+      - 讀取：Object.prototype.toString.call(object).slice(8, -1)，僅有此間接方式可取得
+
+      - 設定：無
+
+    - 擴充性 (_extensible_)
+
+      > 所有內建與使用者自定義的物件，預設都是可擴充的
+
+      - 讀取：Object.isExtensible(object)，判斷物件是否為可擴充
+
+      - 設定：Object.preventExtensions(object)，將物件設為不可擴充(_nonextensible_)
+
   * **物件序列化 (_serialization_)**：將物件轉成字串，並讓它可由字串復原成物件
 
     ex :
@@ -588,6 +644,27 @@ Arrays
 
     var i = 2;
     var a[i + 1] = 'hello';     // 寫入元素 3
+    ```
+
+  * forEach()：可迭代所有元素，第一個參數為函式，forEach() 會用三個引數呼叫你指定的函式，而缺點是無法使用 `break` 關鍵字中斷
+
+    - 第一個引數：陣列元素值
+
+    - 第二個引數：陣列元素的索引
+
+    - 第三個引數：陣列本身
+
+    ex :
+
+    ```javascript
+    var data = [1, 2, 3, 4, 5];
+    
+    data.forEach(function(value, index, array) {
+      
+      array[index] = value + 1;
+    });
+    
+    console.log(data);     // => [2, 3, 4, 5, 6]
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -744,6 +821,81 @@ Functions
 
         console.log(uniqueInteger.counter + 1);    // => 11
     }
+    ```
+
+  * 參數傳遞方式：為 Call by sharing，複製參考到新的參照上，修改會改變原有參照，賦予新值則會產生新的參考
+
+    ex :
+
+    ```javascript
+    var arr1 = [1,2,3];
+    var arr2 = arr1;       // arr1 和 arr2，指向相同的參考上
+    
+    arr2 = [4,5,6];        // 新建立一個 Array，並將它指向 arr2
+    
+    console.log(arr1);     // => [1, 2, 3]
+    ```
+
+  * 每個函式都有一個 prototype 特性，用來參考 prototype 物件，透過 new 關鍵字實例化物件，則會用此 prototype 物件繼承其他物件
+
+  * apply()、call()：用於間接呼叫函式，可操作原本物件上沒有的方法，並指定運行環境
+
+    - call(thisArg, arg1, arg2)：第一個參數為調用情境，第二個開始的參數為欲代入函式的引數
+
+    - apply(thisArg, [argsArray])：第一個參數為調用情境，第二個參數是一個陣列，其內容為欲代入函式的引數
+
+    ex :
+
+    ```javascript
+    var obj1 = {
+      
+      getName: function () {
+        
+        return this.name;
+      }
+    };
+    
+    var obj2 = {                              // obj2 沒有 getName()
+      
+      name: 'Justin'
+    }
+    
+    console.log(obj1.getName.call(obj2));     // => 'Justin'，透過 call() 讓 obj2 間接呼叫 obj1 的函式
+    ```
+
+  * **回呼 (_callback_)**：是一個函式，將其當作引數放進另一個函式等待被操作，前者就是後者的回呼
+
+    ex :
+
+    ```javascript
+    var func = function() {
+      
+      console.log('Hello World');
+    };
+    
+    window.addEventListener('load', func, false);     // => 'Hello World'，觸發 load 事件時，呼叫 func()
+    ```
+
+  * **閉包 (_closure_)**：能夠讀取其他函式內部變數的函式，稱為 closure
+
+    ex :
+
+    ```javascript
+    var scope = 'global scope';
+    
+    function checkScope() {
+      
+      var scope = 'local scope';
+      
+      function func() {
+        
+        return console.log(scope);
+      }
+      
+      return func;
+    }
+    
+    checkScope()();    // => 'local scope'，func() 為 closure
     ```
 
 **[⬆ back to top](#table-of-contents)**
