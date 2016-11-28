@@ -909,4 +909,12 @@ JavaScript : The Definitive Guide,  6E Traditional Chinese (Author：David Flana
 
 Speaking JavaScript, Traditional Chinese (Author：Dr. Axel Rauschmayer)
 
+JavaScript — call-by-sharing (Author：Avinash Kondeti)
+
+  - https://medium.com/wwstay-engineering/javascript-call-by-sharing-2d3ca42c4d02#.ms38pikzt
+
+簡單介紹JavaScript參數傳遞 (Author：Tommy Lin)
+
+  - http://www.slideshare.net/YiTaiLin/java-script-63031051
+
 <br />
