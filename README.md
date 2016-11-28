@@ -838,7 +838,7 @@ Functions
 
   * 每個函式都有一個 prototype 特性，用來參考 prototype 物件，透過 new 關鍵字實例化物件，則會用此 prototype 物件繼承其他物件
 
-  * apply()、call()：用於間接呼叫函式，可操作原本物件上沒有的方法，並指定運行環境
+  * call()、apply()：用於間接呼叫函式，可操作原本物件上沒有的方法，並指定運行環境
 
     - call(thisArg, arg1, arg2)：第一個參數為調用情境，第二個開始的參數為欲代入函式的引數
 
