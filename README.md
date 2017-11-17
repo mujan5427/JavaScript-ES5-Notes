@@ -130,23 +130,23 @@ Types, Values, and Variables
 
     ```javascript
     var obj = {
-      
+
       m: function() {
-        
+
         var self = this;
-        
+
         console.log(this === obj);       // => true
-        
+
         func();
-        
+
         function func() {
-          
+
           console.log(this === obj);     // => false，this 為全域物件 或 undefined
           console.log(self === obj);     // => true，self 是外層的 this 值
         }
       }
     };
-    
+
     obj.m();
     ```
 
@@ -170,7 +170,7 @@ Types, Values, and Variables
   * **變數宣告 (_variable declare_)**：使用 `var`，可用同一個關鍵字宣告多個變數，也可直接初始化 (_initialization_)，只宣告並未初始化的變數，它的值會是 `undefined`
 
     ex :
-    
+
     ```javascript
     var i, sum;
 
@@ -292,7 +292,7 @@ Statements
     ex :
 
     ```javascript
-    
+
     // while statement
 
     var count = 0;
@@ -357,7 +357,7 @@ Statements
     for (var i = 0; i < a.length; i++) {
 
         if (a[i] == target) {
-    
+
             break;     // 可使最內層的外圍迴圈，立即終止並跳離
         }
     }
@@ -367,7 +367,7 @@ Statements
     for (i = 0; i < data.length; i++) {
 
         if (!data[i]) {
- 
+
             continue;     // 重新開始下一次迭代
         }
 
@@ -477,7 +477,7 @@ Objects
 
   * 每個物件都有第二個物件與之關聯，而這第二個物件就稱為原型，第一個物件就從這個原型繼承特性
 
-  * **原型鏈 (_prototype chain_)**：原型與原型之間繼承的關係就稱為原型鏈
+  * **原型鏈 (_prototype chain_)**：物件與原型之間繼承的關係就稱為原型鏈
 
   * 所有用物件字面值建立的物件，都有同一個原型物件，我們用 Object.prototype 來參考這個原型物件
 
@@ -658,12 +658,12 @@ Arrays
 
     ```javascript
     var data = [1, 2, 3, 4, 5];
-    
+
     data.forEach(function(value, index, array) {
-      
+
       array[index] = value + 1;
     });
-    
+
     console.log(data);     // => [2, 3, 4, 5, 6]
     ```
 
@@ -788,7 +788,7 @@ Functions
         console.log(arguments[0]);         // arguments[0] 等於，引數 x
         console.log(arguments[1]);         // arguments[1] 等於，引數 y
         console.log(arguments[2]);         // arguments[2] 等於，引數 z
-         
+
         // 三個引數被調用
 
         console.log(arguments.length);     // => 3
@@ -830,9 +830,9 @@ Functions
     ```javascript
     var arr1 = [1,2,3];
     var arr2 = arr1;       // arr1 和 arr2，指向相同的參考上
-    
+
     arr2 = [4,5,6];        // 新建立一個 Array，並將它指向 arr2
-    
+
     console.log(arr1);     // => [1, 2, 3]
     ```
 
@@ -848,18 +848,18 @@ Functions
 
     ```javascript
     var obj1 = {
-      
+
       getName: function () {
-        
+
         return this.name;
       }
     };
-    
+
     var obj2 = {                              // obj2 沒有 getName()
-      
+
       name: 'Justin'
     }
-    
+
     console.log(obj1.getName.call(obj2));     // => 'Justin'，透過 call() 讓 obj2 間接呼叫 obj1 的函式
     ```
 
@@ -869,10 +869,10 @@ Functions
 
     ```javascript
     var func = function() {
-      
+
       console.log('Hello World');
     };
-    
+
     window.addEventListener('load', func, false);     // => 'Hello World'，觸發 load 事件時，呼叫 func()
     ```
 
@@ -882,19 +882,19 @@ Functions
 
     ```javascript
     var scope = 'global scope';
-    
+
     function checkScope() {
-      
+
       var scope = 'local scope';
-      
+
       function func() {
-        
+
         return console.log(scope);
       }
-      
+
       return func;
     }
-    
+
     checkScope()();    // => 'local scope'，func() 為 closure
     ```
 
