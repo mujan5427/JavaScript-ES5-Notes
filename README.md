@@ -801,44 +801,6 @@ Functions
     var tensquared = (function(x) {return x * x} (10));     // 函式運算式也可以在宣告後立即調用
     ```
 
-  * **拉升 (_hoisting_)**：移到一個範疇 (_scope_) 開頭的地方
-
-  * 函式宣告會完全被拉升，而變數宣告只有部分會被拉升
-
-    ex :
-
-    ```javascript
-    // 函式宣告拉升
-
-    foo();
-    function foo() {     // 此函式被拉升了
-
-    }
-
-    // 實際執行時，會將上述程式碼以下列方式執行
-
-    function foo() {
-
-    }
-
-    foo();
-
-    // 變數宣告拉升
-
-    foo();
-    var foo = function () {
-
-    };
-
-    // 實際執行時，會將上述程式碼以下列方式執行
-
-    var foo;
-    foo();     // TypeError：undefined is not a function
-    foo = function () {
-
-    };
-    ```
-
   * 函式調用可透過四種方式「`作為函式`、`作為方法`、`作為建構式`、`call() 和 apply()`」
 
     ex :
