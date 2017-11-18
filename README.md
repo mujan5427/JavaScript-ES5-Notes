@@ -106,7 +106,7 @@ Types, Values, and Variables
 
   * **undefined**：包含在以下幾種情況中「尚未初始化的變數、調用不存在的物件特性或陣列元素、沒有回傳值的函式、沒有提供對應引數 (_argument_) 的函式參數 (_parameter_)」
 
-  * **全域物件 (_global object_)**：當 JavaScript 直譯器啟動 或 瀏覽器載入新頁面，它會創建一個全域物件，並給它初始特性
+  * **全域物件 (_global object_)**：當 JavaScript 直譯器啟動 或 瀏覽器載入新頁面，它會創建一個全域物件，並給它下列初始特性：
 
     * undefined、Infinity、NaN
 
@@ -120,7 +120,9 @@ Types, Values, and Variables
 
     > 不同於變數，this 關鍵字沒有範疇 (_scope_)
 
-    - 在 top-level 中：this 參考至全域物件
+    - 在 **頂層 (_top-level_)** 中：this 參考至全域物件
+
+      > top-level：即不包含在任何函式定義內的程式碼
 
     - 函式調用：this 參考至全域物件，strict 模式中 為 `undefined`
 
@@ -154,7 +156,25 @@ Types, Values, and Variables
 
   * **基本型別 (_primitive types_)**：是用值 (_by value_) 相比，值是不可變的 (_immutable_)，兩者具有相同的值時，兩值相等
 
+    ex：
+
+    ```javascript
+    var s = 'hello';     // 創建一些小寫文字
+    s.toUpperCase();     // 回傳 'HELLO'，但沒有更動 s
+    s                    // => 'hello'：原字串並未改變
+    ```
+
   * **物件型別 (_object types_)**：是參考 (_by references_) 相比，值是可變的 (_mutable_)，兩者即便擁有相同的特性，也不相等; 除非指涉至 (_refer to_) 同一個物件時，才相等
+
+    ex：
+
+    ```javascript
+    var a = [];          // 變數 a 指涉一個空陣列
+    var b = a;           // 現在 b 也指涉至同一個陣列
+    b[0] = 1;            // 使 b 指涉的陣列變異
+    a[0]                 // => 1：透過變數 a 也可以看見這個改變
+    a === b              // => true：a 與 b 指涉至同一個物件，所以它們相等
+    ```
 
   * **明確的 (_explicit_) 型別轉換**：可透過轉換函式轉換型別
 
@@ -177,6 +197,10 @@ Types, Values, and Variables
     var x = 0, y = 1, z = 2;
     ```
 
+    > automatically global：If you assign a value to a variable that has not been declared, it will automatically become a global variable. Even if the value is assigned inside a function.
+
+    > global variables are not created automatically in "Strict Mode".
+
   * **變數範疇 (_variable scope_)**：在頂層 (_top-level_) 宣告的變數為全域變數 (_global variable_)，在函式主體中定義的變數為區域變數 (_local variable_)，函式參數 (_parameters_) 也算區域變數
 
   * **變數優先序 (_precedence_)**：區域變數的優先序，比同樣名稱的全域變數還高
@@ -195,6 +219,34 @@ Types, Values, and Variables
 
     checkScope();                // => 'local'
     ```
+
+  * **函式範疇 (_function scope_)**：只有在定義變數的函式及其內的任何巢狀函式中，才看得到這些變數
+
+    > Each function creates a new scope.
+
+  * **全域變數 (_global variables_)**
+
+    - A variable declared outside a function, becomes global.
+
+    - A global variable has global scope：All scripts and functions on a web page can access it.
+
+    > 當你宣告一個全域變數，實際上你是定義全域物件中的一個特性
+
+    > In HTML, the global scope is the window object. All global variables belong to the window object.
+
+  * **區域變數 (_local variables_)**
+
+    - Variables declared within a JavaScript function, become local to the function.
+
+    - Local variables have local scope：They can only be accessed within the function.
+
+  * The Lifetime of JavaScript Variables
+
+    - The lifetime of a JavaScript variable starts when it is declared.
+
+    - Local variables are deleted when the function is completed.
+
+    - In a web browser, global variables are deleted when you close the browser window (or tab).
 
 **[⬆ back to top](#table-of-contents)**
 
