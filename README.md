@@ -260,7 +260,7 @@ Expressions and Operators
 
   * **運算子 (_operators_)**：運算子大多用標點符號 (_punctuation_) 來表示，擁有優先序 (_precedence_)、結合律 (_associativity_)
 
-  * **運算元 (_operands_) **：被運算子所估算 (_evaluate_) 的元素
+  * **運算元 (_operands_)**：被運算子所估算 (_evaluate_) 的元素
 
     ex :
 
