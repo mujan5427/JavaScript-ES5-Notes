@@ -536,6 +536,10 @@ Objects
 
   * 創建物件可透過 3 種方式「物件字面值 (_object literal_)、new 關鍵字、Object.create()」
 
+    - new 關鍵字後面必須接著函式調用，透過這種方式調用的函式稱為**建構式 (_constructor_)**
+
+      > 除了內建的建構式 (Object、Date、RegExp...etc) 之外，也可以定義自己的建構式來初始化並創建物件
+
     ex :
 
     ```javascript
@@ -573,7 +577,11 @@ Objects
 
   * 所有用物件字面值建立的物件，都有同一個原型物件，我們用 Object.prototype 來參考這個原型物件
 
-  * 透過 new 關鍵字與建構式所建立的物件，其原型為建構式的 prototype 特性值
+  * 透過 new 關鍵字與建構式調用所產生的物件，其原型為**建構函式 (_constructor function_)** 的 prototype 特性值
+
+    > 由 new Object() 創建的物件繼承自 Object.prototype 與 {} 創建的物件相同
+
+    > 由 new Date() 創建的物件，其原型為 Date.prototype
 
   * Object.create() 建立的物件，可指定原型或不繼承任何原型物件
 
@@ -596,6 +604,8 @@ Objects
     ```
 
   * 如果已存在繼承特性 (_inherited property_) x，再新增一個同名的自有特性 x，則此自有特性會覆寫 (_override_) 繼承特性 x
+
+  * 特性的指定會檢視原型鏈 (_prototype chain_)，判斷這個指定是否可行，如果該指定被允許，它只會在原本的物件上新建或設定特性，永遠不會修改到原型鏈中的物件
 
   * 繼承只在查用特性時發生，而不在設定特性時發生，意思是無法透過繼承去修改原型物件的特性
 
