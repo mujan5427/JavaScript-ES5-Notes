@@ -811,25 +811,35 @@ Functions
     var tensquared = (function(x) {return x * x} (10));     // 函式運算式也可以在宣告後立即調用
     ```
 
-  * 函式調用可透過四種方式「`作為函式`、`作為方法`、`作為建構式`、`call() 和 apply()`」
+  * 調用函式可透過四種方式「`函式調用`、`方法調用`、`建構式調用`、`間接調用`」
+
+    - 調用情境
+
+      - 函式調用：ES3 及 非strict的ES5中，調用情境為全域物件，在strict模式中，則為 `undefined`
+
+      - 方法調用：調用方法的物件即是調用情境，可用關鍵字 `this` 參考該物件
+
+      - 建構式調用：建構式調用會產生一個新物件，此物件即是調用情境，可用關鍵字 `this` 參考該物件
+
+      - 間接調用：call() 與 apply() 方法的第一個參數即可指定調用情境
 
     ex :
 
     ```javascript
-    // 作為函式
+    // 函式調用
 
     printprops(10, 5);
 
-    // 作為方法
+    // 方法調用
 
     o.printprops(10, 5);
 
-    // 作為建構式
+    // 建構式調用
 
     var o = new Object();
     var o = new Object;
 
-    // call() 和 apply()
+    // 間接調用
 
     f.call(o);           // 把函式 f() 當成物件 o 的方法來調用
     f.apply(o);
@@ -879,11 +889,10 @@ Functions
     ex :
 
     ```javascript
+    uniqueInteger.counter = 0;            // 初始化這個函式物件的 counter 特性
+
     function uniqueInteger () {
-
-        uniqueInteger.counter = 10;
-
-        console.log(uniqueInteger.counter + 1);    // => 11
+      return uniqueInteger.counter++;     // 回傳並遞增 counter 特性
     }
     ```
 
@@ -925,6 +934,21 @@ Functions
     }
 
     console.log(obj1.getName.call(obj2));     // => 'Justin'，透過 call() 讓 obj2 間接呼叫 obj1 的函式
+    ```
+
+  * bind()：用於將一個函式繫結至 (bind to) 一個物件
+
+    ex：
+
+    ```javascript
+    // 當你在函式 f 上調用 bind() 方法，並傳入物件 o，這個方法會回傳一個新的函式
+    // 調用這個新函式，會把原本的函式 f 當作 o 的方法來調用
+    // 任何傳給新函式的引數都會傳入原本的函式
+
+    function f(y) { return this.x + y; }     // 這個函式需要繫結
+    var o = { x: 1 };                        // 我們會繫結至物件 o
+    var g = f.bind(o);                       // 呼叫 g(x) 會調用 o.f(x)
+    g(2);                                    // => 3
     ```
 
   * **回呼 (_callback_)**：是一個函式，將其當作引數放進另一個函式等待被操作，前者就是後者的回呼
