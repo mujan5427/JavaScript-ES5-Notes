@@ -248,6 +248,46 @@ Types, Values, and Variables
 
     - In a web browser, global variables are deleted when you close the browser window (or tab).
 
+  * **拉升 (_Hoisting_)**：`var` 宣告的變數 和 `function` 宣告的函式，都會被 "拉升" 至範疇的頂端
+
+    - JavaScript only hoists declarations, not initializations.
+
+    - 對於函式宣告述句，函式名稱與函式主體兩者都會被 "拉升"
+
+    ex :
+
+    ```javascript
+    // 函式宣告拉升
+
+    foo();
+    function foo() {     // 此函式被拉升了
+
+    }
+
+    // 實際執行時，會將上述程式碼以下列方式執行
+
+    function foo() {
+
+    }
+
+    foo();
+
+    // 變數宣告拉升
+
+    foo();
+    var foo = function () {
+
+    };
+
+    // 實際執行時，會將上述程式碼以下列方式執行
+
+    var foo;
+    foo();     // TypeError：undefined is not a function
+    foo = function () {
+
+    };
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 <br />
