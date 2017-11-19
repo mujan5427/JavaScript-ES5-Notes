@@ -964,11 +964,19 @@ Functions
     window.addEventListener('load', func, false);     // => 'Hello World'，觸發 load 事件時，呼叫 func()
     ```
 
-  * **閉包 (_closure_)**：能夠讀取其他函式內部變數的函式，稱為 closure
+  * **閉包 (_closure_)**：closure is a function having access to the parent scope, even after the parent function has closed.
+
+    - It makes it possible for a function to have "**private**" variables.
+
+    - closure 會捕捉它們外層函式 (即它們被定義之處) 的區域變數 (以及參數) 之繫結
 
     ex :
 
     ```javascript
+    // JavaScript 函式執行時使用的範疇鏈 (scope chain)，是在它們定義時生效的範疇鏈
+    // 巢狀函式 func() 定義時的範疇鏈，其中的變數 scope 是繫結至 (bound to) 值 "local scope"
+    // 這個繫結 (binding) 在 func 執行時仍然有效，不管它是在何處被執行
+
     var scope = 'global scope';
 
     function checkScope() {
