@@ -250,6 +250,8 @@ Types, Values, and Variables
 
   * **拉升 (_Hoisting_)**：`var` 宣告的變數 和 `function` 宣告的函式，都會被 "拉升" 至範疇的頂端
 
+    - Variable declarations are processed before any code is executed.
+
     - JavaScript only hoists declarations, not initializations.
 
     - 對於函式宣告述句，函式名稱與函式主體兩者都會被 "拉升"
